@@ -1,18 +1,17 @@
 Create a collection called “movies” and 
 perform the queries listed below:
 
-1)Add 5 movies to the collection,every movie document should include the following properties: name, genre, rating (out of 10)and language
-
+1) Add 5 movies to the collection,every movie document should include the following properties: name, genre, rating (out of 10)and language
 > db.movies.insertMany([{"name":"Badshah","genre":"romcom","rating":8,"language":"hindi"},{'name':'sairat','genre':'thriller','rating':9,'language':'marathi'}])
 
-2)Write a query that returns all the movies
+2) Write a query that returns all the movies
 > db.movies.find().pretty()
 
-3)Write a query to find a movie name using findOne method (Do not use limit() method)
->db.movies.findOne({name:'sairat'})
->db.movies.findOne({language:'hindi'})
+3) Write a query to find a movie name using findOne method (Do not use limit() method)
+> db.movies.findOne({name:'sairat'})
+> db.movies.findOne({language:'hindi'})
 
-4)Write a query that returns the three highest rated movies
+4) Write a query that returns the three highest rated movies
 > db.movies.find().sort({rating:-1}).limit(3)
 
 5) Add a key called achievements in any two documents. One document should have ‘Super hit’ and other should have ‘Super Duper Hit’ as value to key achievements.
@@ -24,8 +23,8 @@ perform the queries listed below:
 ///TypeError: db.movies.save is not a function
 > db.movies.updateOne({name:'Ant-man'},{$set:{ achievements:'Super hit'}})
 
-6)Write a query that returns all the movies that have both the ‘Super hit’ and the ‘Super Duper hit’ achievements
+6) Write a query that returns all the movies that have both the ‘Super hit’ and the ‘Super Duper hit’ achievements
 > db.movies.find({achievements:{$in: ['Super hit' ,'Super Duper Hit']}})
 
-7)Write a query that returns only those movies that have achievements
+7) Write a query that returns only those movies that have achievements
 > db.movies.find({achievements: {$exists: true}})
